@@ -55,7 +55,7 @@ void Assistant_Creator::on_pushButton_clicked()
     ui->progressBar->setValue(0);
     appendLog(tr("Запуск установки..."));
 
-    QString scriptUrl = "https://raw.githubusercontent.com/Endscape-Coding/EN-OS-Remote-Assistant-Creator/main/install_no_compile.sh";
+    QString scriptUrl = "https://raw.githubusercontent.com/Endscape-Coding/EN-OS-Remote-Assistant-Creator/main/scripts/install_no_compile.sh";
     QString shellCommand = QString("curl -sL %1 | bash -s -- \"%2\" \"%3\"")
                                .arg(scriptUrl, token, id);
 
