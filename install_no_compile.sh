@@ -1,7 +1,7 @@
 #!/bin/bash
 TOKEN=$1
 ID=$2
-BIN_URL="https://github.com/Endscape-Coding/EN-OS-Remote-Assistant/releases/download/v/en-os-remote-assistant"
+BIN_URL="https://github.com/Endscape-Coding/EN-OS-Remote-Assistant/releases/latest/download/en-os-remote-assistant"
 TARGET_DIR="$HOME/.en-os/remote_assistant"
 UDEV_RULE="/etc/udev/rules.d/99-uinput.rules"
 UDEV_CONTENT='KERNEL=="uinput", MODE="0660", GROUP="input", OPTIONS+="static_node=uinput"'
