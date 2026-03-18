@@ -28,8 +28,15 @@ set(PROJECT_SOURCES
     assistant_creator.ui
 )
 
+set(BINARY_NAME "en-os-remote-assistant-creator")
+
 qt_add_executable(EN-OS-Remote-Assistant-Creator
     ${PROJECT_SOURCES}
+    resources.qrc
+)
+
+set_target_properties(EN-OS-Remote-Assistant-Creator PROPERTIES
+    OUTPUT_NAME ${BINARY_NAME}
 )
 
 target_link_libraries(EN-OS-Remote-Assistant-Creator PRIVATE Qt6::Widgets)

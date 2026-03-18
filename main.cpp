@@ -3,9 +3,12 @@
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
+#include <cstdlib>
 
 int main(int argc, char *argv[])
 {
+    setenv("XDG_RUNTIME_DIR", "/tmp/runtime-root", 1);
+
     QApplication a(argc, argv);
 
     QTranslator translator;
@@ -17,6 +20,7 @@ int main(int argc, char *argv[])
             break;
         }
     }
+    a.setWindowIcon(QIcon(":/icon.png"));
     Assistant_Creator w;
     w.show();
     return a.exec();

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=EN-OS Assistant Creator
+Icon=en-os-assistant
+Exec=en-os-remote-assistant-creator
+Terminal=false
+Categories=System;Utility;
