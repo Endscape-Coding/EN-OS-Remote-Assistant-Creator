@@ -26,7 +26,7 @@ echo "$MSG_OS"
 
 install_pkgs() {
     if command -v pacman &> /dev/null; then
-        pkexec pacman -S --noconfirm git base-devel ydotool curl
+        pkexec pacman -S --noconfirm git base-devel ydotool curl --needed
     elif command -v apt-get &> /dev/null; then
         pkexec apt-get update && pkexec apt-get install -y git build-essential ydotool curl
     elif command -v dnf &> /dev/null; then
