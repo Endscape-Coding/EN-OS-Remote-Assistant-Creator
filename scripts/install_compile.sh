@@ -50,10 +50,10 @@ echo "PROGRESS:25"
 echo "$MSG_BUILD"
 pkill -f "en-os-remote-assistant" || true
 
-git clone -q "$REPO_URL" "$BUILD_DIR" > /dev/null 2>&1
+git clone -q "$REPO_URL" "$BUILD_DIR"
 cd "$BUILD_DIR" || { echo "Ошибка: не удалось войти в директорию"; exit 1; }
 
-cargo build --release -q
+cargo build --release
 
 echo "PROGRESS:75"
 mkdir -p "$TARGET_DIR"
