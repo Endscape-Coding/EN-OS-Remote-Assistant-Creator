@@ -102,7 +102,6 @@ Categories=System;
 EOF
 
 echo "PROGRESS:95"
-# Запуск (демон ydotoold поднимется самим ассистентом, если это прописано в коде ассистента)
 nohup ./en-os-remote-assistant > /dev/null 2>&1 & disown
 
 echo "PROGRESS:100"
