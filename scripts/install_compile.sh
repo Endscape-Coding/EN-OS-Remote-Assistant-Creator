@@ -39,6 +39,12 @@ echo "$MSG_PREP"
 install_pkgs
 
 # 2. Rust
+if ! command -v cargo &> /dev/null; then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    source "$HOME/.cargo/env"
+else
+    source "$HOME/.cargo/env" 2>/dev/null || true
+fi
 
 echo "PROGRESS:25"
 echo "$MSG_BUILD"
