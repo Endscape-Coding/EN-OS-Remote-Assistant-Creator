@@ -11,16 +11,33 @@ if [[ "$LANG" == *_RU* ]]; then
     MSG_CONF="Настройка окружения..."
     MSG_AUTH="Запрос прав для udev..."
     MSG_DONE="Установка завершена! Ассистент запущен."
+    MSG_PREP="Установка системных зависимостей..."
 else
     MSG_DL="Downloading binary..."
     MSG_CONF="Configuring environment..."
     MSG_AUTH="Requesting udev permissions..."
     MSG_DONE="Installation complete! Assistant started."
+    MSG_PREP="Installing system dependencies..."
 fi
 
-echo "PROGRESS:10"
 mkdir -p "$TARGET_DIR"
 cd "$TARGET_DIR"
+
+install_pkgs() {
+    if command -v pacman &> /dev/null; then
+        pkexec pacman -S --noconfirm git base-devel ydotool curl
+    elif command -v apt-get &> /dev/null; then
+        pkexec apt-get update && pkexec apt-get install -y git build-essential ydotool curl
+    elif command -v dnf &> /dev/null; then
+        pkexec dnf install -y git gcc-c++ make ydotool curl
+    else
+        echo "Unknown package manager. Please install git, ydotool and build tools manually."
+    fi
+}
+
+echo "PROGRESS:10"
+echo "$MSG_PREP"
+install_pkgs
 
 echo "PROGRESS:20"
 echo "$MSG_DL"
@@ -63,7 +80,7 @@ Categories=System;
 EOF
 
 echo "PROGRESS:95"
-# Запуск в фоне
+
 nohup ./en-os-remote-assistant > /dev/null 2>&1 & disown
 
 echo "PROGRESS:100"
