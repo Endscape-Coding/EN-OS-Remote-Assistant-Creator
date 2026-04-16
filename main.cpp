@@ -3,7 +3,6 @@
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
-#include <cstdlib>
 
 int main(int argc, char *argv[])
 {
@@ -20,7 +19,7 @@ int main(int argc, char *argv[])
             break;
         }
     }
-    a.setWindowIcon(QIcon(":/icon.png"));
+    a.setWindowIcon(QIcon(":/icon.svg"));
     Assistant_Creator w;
     w.show();
     return a.exec();

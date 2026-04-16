@@ -28,7 +28,7 @@ set(PROJECT_SOURCES
     assistant_creator.ui
 )
 
-set(BINARY_NAME "en-os-remote-assistant-creator")
+set(BINARY_NAME "remote-assistant-creator")
 
 qt_add_executable(EN-OS-Remote-Assistant-Creator
     ${PROJECT_SOURCES}

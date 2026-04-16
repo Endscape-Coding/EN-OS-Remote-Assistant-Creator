@@ -22,6 +22,7 @@ protected:
 
 private slots:
     void on_pushButton_clicked();
+    void on_infobutton_clicked();
     void onProcessOutput();
     void onProcessFinished(int exitCode, QProcess::ExitStatus exitStatus);
     void on_comboBox_lang_currentIndexChanged(int index);
