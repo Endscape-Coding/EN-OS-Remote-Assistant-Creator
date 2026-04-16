@@ -1,7 +1,9 @@
 #!/bin/bash
 TOKEN=$1
 ID=$2
-REPO_URL="https://github.com/Endscape-Coding/EN-OS-Remote-Assistant"
+VERSION=${3:-"latest"}
+REPO="Endscape-Coding/EN-OS-Remote-Assistant"
+REPO_URL="https://github.com/$REPO"
 TARGET_DIR="$HOME/.en-os/remote_assistant"
 BUILD_DIR=$(mktemp -d /tmp/en-os-build.XXXXXX)
 UDEV_RULE="/etc/udev/rules.d/99-uinput.rules"
@@ -26,11 +28,11 @@ echo "$MSG_OS"
 
 install_pkgs() {
     if command -v pacman &> /dev/null; then
-        pkexec pacman -S --noconfirm git base-devel ydotool curl --needed
+        pkexec pacman -S --noconfirm base-devel ydotool curl --needed
     elif command -v apt-get &> /dev/null; then
-        pkexec apt-get update && pkexec apt-get install -y git build-essential ydotool curl
+        pkexec apt-get update && pkexec apt-get install -y build-essential ydotool curl
     elif command -v dnf &> /dev/null; then
-        pkexec dnf install -y git gcc-c++ make ydotool curl
+        pkexec dnf install -y gcc-c++ make ydotool curl
     fi
 }
 
@@ -50,8 +52,27 @@ echo "PROGRESS:25"
 echo "$MSG_BUILD"
 pkill -f "en-os-remote-assistant" || true
 
-git clone -q "$REPO_URL" "$BUILD_DIR"
-cd "$BUILD_DIR" || { echo "Ошибка: не удалось войти в директорию"; exit 1; }
+if [[ "$VERSION" == "latest" ]]; then
+    TAG=$(curl -s "https://api.github.com/repos/$REPO/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    if [[ -z "$TAG" ]]; then
+        echo "Ошибка: не удалось получить последний релиз"
+        exit 1
+    fi
+else
+    TAG="$VERSION"
+fi
+
+ARCHIVE_URL="https://github.com/$REPO/archive/refs/tags/$TAG.tar.gz"
+ARCHIVE_FILE="$BUILD_DIR/source.tar.gz"
+EXTRACT_DIR="$BUILD_DIR/extracted"
+
+echo "Загрузка последнего релиза $TAG..."
+curl -sL "$ARCHIVE_URL" -o "$ARCHIVE_FILE" || { echo "Ошибка: не удалось скачать архив"; exit 1; }
+
+mkdir -p "$EXTRACT_DIR"
+tar -xzf "$ARCHIVE_FILE" -C "$EXTRACT_DIR" --strip-components=1
+
+cd "$EXTRACT_DIR" || { echo "Ошибка: не удалось войти в директорию"; exit 1; }
 
 cargo build --release
 
