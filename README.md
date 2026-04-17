@@ -1,167 +1,167 @@
 # EN-OS Remote Assistant Creator 🤖
 
-[![License: GPL-3.0](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](LICENSE)
-[![Qt6](https://img.shields.io/badge/Qt-6.x-41CD52.svg)](https://www.qt.io/)
-[![C++](https://img.shields.io/badge/C++-17-blue.svg)](https://isocpp.org/)
-[![Release](https://img.shields.io/github/v/release/Endscape-Coding/EN-OS-Remote-Assistant-Creator)](https://github.com/Endscape-Coding/EN-OS-Remote-Assistant-Creator/releases)
+[](https://www.google.com/search?q=LICENSE)
+[](https://www.qt.io/)
+[](https://isocpp.org/)
+[](https://github.com/Endscape-Coding/EN-OS-Remote-Assistant-Creator/releases)
 
-> **GUI-утилита для быстрой настройки и установки [EN-OS Remote Assistant](https://github.com/Endscape-Coding/EN-OS-Remote-Assistant)** - Telegram-бота для удалённого управления вашей системой.
+> **A GUI utility for quick setup and installation of [EN-OS Remote Assistant](https://github.com/Endscape-Coding/EN-OS-Remote-Assistant)** - a Telegram bot for remote management of your system.
 
-![Logo](Assistant_Creator_Logo.png)
+-----
 
----
+## 🚀 About the Project
 
-## 🚀 О проекте
+**EN-OS Remote Assistant Creator** is a cross-platform application built with **Qt6** that simplifies the installation and configuration process for [EN-OS Remote Assistant](https://github.com/Endscape-Coding/EN-OS-Remote-Assistant).
 
-**EN-OS Remote Assistant Creator** - это кроссплатформенное приложение на **Qt6**, которое упрощает процесс установки и настройки [EN-OS Remote Assistant](https://github.com/Endscape-Coding/EN-OS-Remote-Assistant).
+The program provides an intuitive graphical interface to:
 
-Программа предоставляет интуитивно понятный графический интерфейс для:
-- Ввода токена и идентификатора бота
-- Выбора режима установки (готовый бинарник или локальная компиляция)
-- Отслеживания прогресса установки в реальном времени
-- Просмотра лога выполнения операций
+  - Enter your bot token and user ID
+  - Select installation mode (pre-built binary or local compilation)
+  - Track installation progress in real-time
+  - View detailed operation logs
 
-Поддерживается работа на различных Linux-дистрибутивах: **Arch**, **Debian/Ubuntu**, **Fedora**.
+Supports various Linux distributions: **Arch**, **Debian/Ubuntu**, **Fedora**.
 
----
+-----
 
-## ✨ Возможности
+## ✨ Features
 
-| Функция | Описание |
+| Feature | Description |
 |---------|----------|
-| 🔐 **Авторизация** | Ввод Telegram Bot Token и User ID для настройки бота |
-| 📦 **Два режима установки** | • `Binary`: быстрая установка готового бинарника <br> • `Compile`: локальная сборка из исходников с максимальной совместимостью |
-| 🌐 **Мультиязычность** | Поддержка 8 языков: 🇷🇺 Русский, 🇬🇧 English, 🇺🇦 Українська, 🇩🇪 Deutsch, 🇫🇷 Français, 🇨🇳 中文, 🇰🇷 한국어, 🇯🇵 日本語 |
-| 📊 **Прогресс-бар и лог** | Визуальное отслеживание этапов установки с подробным выводом |
-| ⚙️ **Автонастройка системы** | Автоматическая установка зависимостей, настройка udev-правил, добавление в группы доступа |
-| 🔄 **Автозагрузка** | Создание `.desktop`-файла для запуска ассистента при старте системы |
-| 🎨 **Современный UI** | Интерфейс на Qt6 с поддержкой тем оформления и анимаций |
+| 🔐 **Authorization** | Enter Telegram Bot Token and User ID to configure the bot |
+| 📦 **Two Install Modes** | • `Binary`: Fast installation of a pre-built binary <br> • `Compile`: Local build from source for maximum compatibility |
+| 🌐 **Multilingual** | Support for 8 languages: 🇷🇺 Russian, 🇬🇧 English, 🇺🇦 Ukrainian, 🇩🇪 German, 🇫🇷 French, 🇨🇳 Chinese, 🇰🇷 Korean, 🇯🇵 Japanese |
+| 📊 **Progress & Logs** | Visual tracking of installation stages with detailed output |
+| ⚙️ **Auto-configuration** | Automatic dependency installation, udev rules setup, and permission group management |
+| 🔄 **Autostart** | Creates a `.desktop` file to launch the assistant on system startup |
+| 🎨 **Modern UI** | Qt6-based interface with theme support and animations |
 
----
+-----
 
-## 🖼️ Скриншоты
+## 🖼️ Screenshots
 
-![Основное окно](https://github.com/user-attachments/assets/c2f4e253-1496-438f-8a35-861e258b134f)
+> 💡 *The interface adapts to the system locale. Language switching is available via the dropdown menu.*
 
-> 💡 *Интерфейс адаптируется под системную локаль. Переключение языка доступно в выпадающем списке.*
+-----
 
----
+## 📦 Requirements
 
-## 📦 Требования
+### For Running the Pre-built Version:
 
-### Для запуска готовой версии:
-- **ОС**: Linux (Arch, Debian/Ubuntu, Fedora или совместимые)
-- **Зависимости**: `curl`, `bash`, `pkexec` (для прав администратора)
-- **Права**: Доступ к `sudo`/`pkexec` для настройки udev-правил
+  - **OS**: Linux (Arch, Debian/Ubuntu, Fedora, or compatible)
+  - **Dependencies**: `curl`, `bash`, `pkexec` (for administrative rights)
+  - **Permissions**: `sudo`/`pkexec` access for configuring udev rules
 
-### Для сборки из исходников:
+### For Building from Source:
+
 ```bash
-# Базовые инструменты сборки
+# Basic build tools
 CMake >= 3.16
-C++17-совместимый компилятор (g++, clang++)
+C++17 compatible compiler (g++, clang++)
 
-# Qt6 модули
+# Qt6 Modules
 Qt6::Widgets
 Qt6::LinguistTools
 
-# Дополнительные
+# Additional
 git, curl
 ```
 
----
+-----
 
-## ⬇️ Установка
+## ⬇️ Installation
 
-### 🔧 Сборка из исходников
+### 🔧 Building from Source
 
 ```bash
-# 1. Клонируйте репозиторий
+# 1. Clone the repository
 git clone https://github.com/Endscape-Coding/EN-OS-Remote-Assistant-Creator.git
 cd EN-OS-Remote-Assistant-Creator
 
-# 2. Запустите скрипт сборки
+# 2. Run the build script
 chmod +x build.sh
 ./build.sh
 
-# 3. Запустите приложение
+# 3. Run the application
 ./build/remote-assistant-creator
 ```
 
-### 📥 Готовые бинарники
+### 📥 Pre-built Binaries
 
-Готовые сборки доступны на странице [Releases](https://github.com/Endscape-Coding/EN-OS-Remote-Assistant-Creator/releases).
+Ready-to-use builds are available on the [Releases](https://github.com/Endscape-Coding/EN-OS-Remote-Assistant-Creator/releases) page.
 
-> ⚠️ **Внимание**: Для корректной работы требуется наличие библиотек Qt6 в системе, или скачиваете Appimage релиз.
+> ⚠️ **Note**: Requires Qt6 libraries to be installed on your system, or use the AppImage release.
 
----
+-----
 
-## 🎮 Использование
+## 🎮 Usage
 
-1. **Запустите** `remote-assistant-creator`
-2. **Введите данные**:
-   - `Token` - токен вашего Telegram-бота (получить у [@BotFather](https://t.me/BotFather))
-   - `ID` - ваш Telegram User ID (узнать у [@userinfobot](https://t.me/userinfobot))
-   - Можете выбрать галочку `Local Compile` для сборки из исходников
-4. **Нажмите "Начать установку"** и следите за прогрессом в логе
-5. **Готово!** Ассистент запущен и готов к работе 🎉
+1.  **Launch** `remote-assistant-creator`
+2.  **Enter Credentials**:
+      - `Token` - your Telegram bot token (get it from [@BotFather](https://t.me/BotFather))
+      - `ID` - your Telegram User ID (get it from [@userinfobot](https://t.me/userinfobot))
+      - Check `Local Compile` if you wish to build from source
+3.  **Click "Start Installation"** and monitor the progress in the log
+4.  **Done\!** The assistant is installed and ready to work 🎉
 
-### 📁 Конфигурация
+### 📁 Configuration
 
-После установки конфигурационный файл создаётся по пути:
+After installation, the config file is created at:
+
 ```
 ~/.en-os/remote_assistant/.env
 ```
 
-Содержимое:
+Content:
+
 ```env
-TELOXIDE_TOKEN=ваш_токен_бота
-ID=ваш_user_id
+TELOXIDE_TOKEN=your_bot_token
+ID=your_user_id
 ```
 
-### 🔄 Автозапуск
+### 🔄 Autostart
 
-Приложение автоматически создаёт файл автозагрузки:
+The application automatically creates an autostart file:
+
 ```
 ~/.config/autostart/en-os-remote-assistant.desktop
 ```
 
----
+-----
 
-## 🌍 Локализация
+## 🌍 Localization
 
-Проект поддерживает многоязычный интерфейс через систему переводов Qt.
+The project supports a multi-language interface via the Qt translation system.
 
-### Поддерживаемые языки:
-| Код | Язык | Файл перевода |
+### Supported Languages:
+
+| Code | Language | Translation File |
 |-----|------|---------------|
-| `ru` | Русский | `assistant_ru.ts` |
+| `ru` | Russian | `assistant_ru.ts` |
 | `en` | English | `assistant_en.ts` |
-| `uk` | Українська | `assistant_uk.ts` |
-| `de` | Deutsch | `assistant_de.ts` |
-| `fr` | Français | `assistant_fr.ts` |
-| `zh` | 中文 | `assistant_zh.ts` |
-| `ko` | 한국어 | `assistant_ko.ts` |
-| `ja` | 日本語 | `assistant_ja.ts` |
+| `uk` | Ukrainian | `assistant_uk.ts` |
+| `de` | German | `assistant_de.ts` |
+| `fr` | French | `assistant_fr.ts` |
+| `zh` | Chinese | `assistant_zh.ts` |
+| `ko` | Korean | `assistant_ko.ts` |
+| `ja` | Japanese | `assistant_ja.ts` |
 
----
+-----
 
-## 📜 Лицензия
+## 📜 License
 
-Распространяется под лицензией **GNU General Public License v3.0**.  
-См. файл [LICENSE](LICENSE) для подробностей.
+Distributed under the **GNU General Public License v3.0**.  
+See the [LICENSE](https://www.google.com/search?q=LICENSE) file for details.
 
----
+-----
 
-## 🔗 Ссылки
+## 🔗 Links
 
-- 🐙 [Исходный код на GitHub](https://github.com/Endscape-Coding/EN-OS-Remote-Assistant-Creator)
-- 🤖 [EN-OS Remote Assistant (основной проект)](https://github.com/Endscape-Coding/EN-OS-Remote-Assistant)
-- 🌐 [Официальный сайт](https://en-os.ru)
-- 💬 [Telegram-канал](https://t.me/Linux_EN_OS)
+  - 🐙 [Source Code on GitHub](https://github.com/Endscape-Coding/EN-OS-Remote-Assistant-Creator)
+  - 🤖 [EN-OS Remote Assistant (Main Project)](https://github.com/Endscape-Coding/EN-OS-Remote-Assistant)
+  - 🌐 [Official Website](https://en-os.ru)
+  - 💬 [Telegram Channel](https://t.me/Linux_EN_OS)
 
----
+-----
 
-> **Разработано с ❤️ в рамках проекта EN-OS**  
-> *Автор: [Endscape](https://github.com/Endscape-Coding)*  
-
----
+> **Developed with ❤️ as part of the EN-OS project** \> *Author: [Endscape](https://github.com/Endscape-Coding)*
