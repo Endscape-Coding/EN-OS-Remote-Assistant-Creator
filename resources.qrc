@@ -6,6 +6,7 @@
 <qresource prefix="/assets">
     <file>cat.gif</file>
     <file>info.png</file>
+    <file>icon.svg</file>
 </qresource>
 </RCC>
 
