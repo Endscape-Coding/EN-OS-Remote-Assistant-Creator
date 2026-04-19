@@ -24,14 +24,21 @@ mkdir -p "$TARGET_DIR"
 cd "$TARGET_DIR"
 
 install_pkgs() {
+    local pkgs="ydotool curl"
+    local extra_x11=""
+
+    if [ "$XDG_SESSION_TYPE" = "x11" ] || [ -n "$DISPLAY" ]; then
+        extra_x11="scrot"
+    fi
+
     if command -v pacman &> /dev/null; then
-        pkexec pacman -S --noconfirm git base-devel ydotool curl
+        pkexec pacman -S --noconfirm $pkgs base-devel $extra_x11
     elif command -v apt-get &> /dev/null; then
-        pkexec apt-get update && pkexec apt-get install -y git build-essential ydotool curl
+        pkexec apt-get update && pkexec apt-get install -y $pkgs build-essential $extra_x11
     elif command -v dnf &> /dev/null; then
-        pkexec dnf install -y git gcc-c++ make ydotool curl
+        pkexec dnf install -y $pkgs gcc-c++ make $extra_x11
     else
-        echo "Unknown package manager. Please install git, ydotool and build tools manually."
+        echo "Unknown package manager. Please install git, ydotool, build tools and optionally scrot manually."
     fi
 }
 
