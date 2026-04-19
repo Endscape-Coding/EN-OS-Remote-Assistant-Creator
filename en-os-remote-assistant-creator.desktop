@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
 Name=EN-OS Assistant Creator
-Icon=en-os-remote-assistant-creator
-Exec=en-os-remote-assistant-creator
+Icon=remote-assistant-creator
+Exec=remote-assistant-creator
 Terminal=false
 Type=Application
 Categories=System;Utility;
